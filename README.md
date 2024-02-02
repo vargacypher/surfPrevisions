@@ -2,3 +2,4 @@
 
 ## WIP.....
 ## DATA GENERATE EVERY HOUR WITH GITHUB ACTIONS
+barrinha.json

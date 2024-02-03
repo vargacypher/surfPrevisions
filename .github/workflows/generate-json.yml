@@ -5,11 +5,8 @@ on:
     - cron: '0 * * * *'  # Run every hour on the hour
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   deploy:

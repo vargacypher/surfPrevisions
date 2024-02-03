@@ -10,6 +10,8 @@ permissions:
 
 jobs:
   deploy:
+    environment:
+      name: publishJson 
     runs-on: self-hosted
     steps:
       - name: Checkout

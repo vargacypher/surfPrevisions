@@ -11,8 +11,6 @@ extern char month[6];
 extern char year[5];
 // extern char timeWeekDay[10];
 
-extern const char* apiUrl;
-
 void printLocalTime();
 
 DynamicJsonDocument getDataFromAPI();

@@ -1,9 +1,8 @@
 #include "utils.h"
 #include <HTTPClient.h>
 
-const char* apiUrl = "http://your-api-endpoint.com/data";
 
-DynamicJsonDocument getDataFromAPI() {
+DynamicJsonDocument getDataFromAPI(String apiUrl) {
   HTTPClient http;
 
   Serial.print("[HTTP] begin...\n");

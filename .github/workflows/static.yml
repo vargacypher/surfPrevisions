@@ -34,6 +34,5 @@ jobs:
         run: |
           git config --global user.name 'vargas'
           git config --global user.email 'vargacypher@users.noreply.github.com'
-          git commit add ./barrinha.json
-          git commit -m "Automated report"
-          git push
+          git status
+

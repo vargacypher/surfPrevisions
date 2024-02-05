@@ -12,8 +12,8 @@ TFT_eSprite spr2 = TFT_eSprite(&lcd); //sprite for calendar
 TFT_eSprite spr3 = TFT_eSprite(&lcd); //sprite for waves
 TFT_eSprite cal = TFT_eSprite(&lcd);
 
-const char* ssid     = "Vargas-NW";
-const char* password = "vavg2011nw";
+const char* ssid     = "dasdasdasdasdasd-NW";
+const char* password = "dasdsadfdgf32432afhg";
 
 const char* ntpServer = "pool.ntp.org";
 const long  gmtOffset_sec = -3 * 3600;             //time zone * 3600 , my time zone is  +1 GTM

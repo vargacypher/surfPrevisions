@@ -29,7 +29,8 @@ def generate_data(spotId:str):
 
     #GENERAL DATA LAST HOUR FROM SURFLINE
     general_df = spotforecasts.get_dataframe()
-    general_df['timestamp_dt'] = general_df['timestamp_dt'].astype(str)
+    general_df['timestamp_dt'] = pd.to_datetime(general_df['timestamp'])
+    general_df['timestamp_dt'] = general_df.dt.hour
     
     general_df = general_df.head(1)[
             [
@@ -47,7 +48,8 @@ def generate_data(spotId:str):
 
     #TIDES
     tide_df = spotforecasts.get_dataframe('tides')
-    tide_df['timestamp_dt'] = tide_df['timestamp_dt'].astype(str)
+    tide_df['timestamp_dt'] = pd.to_datetime(tide_df['timestamp'])
+    tide_df['timestamp_dt'] = tide_df.dt.hour
     del spotforecasts
     
     tide_max = tide_df[(tide_df['height'] == tide_df['height'].max())].head(1)

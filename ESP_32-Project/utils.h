@@ -32,6 +32,6 @@ extern char year[5];
 void fetchData(const char* apiUrl);
 void printLocalTime();
 
-const char* getWindDirectionLetter();
+const char* getWindDirectionLetter(float windDirection);
 
 #endif

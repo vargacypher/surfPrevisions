@@ -94,7 +94,7 @@ static unsigned long lastFetchTime = 0;
 unsigned long currentTime = millis();
 
 void loop(){  
-  if (currentTime - lastFetchTime >= 3600000) && (WiFi.status() == WL_CONNECTED) { // 60 minutes
+  if (currentTime - lastFetchTime >= 3600000 && WiFi.status() == WL_CONNECTED)  { // 60 minutes
     fetchData(apiUrl);
     lastFetchTime = currentTime;
   }
@@ -135,7 +135,7 @@ void loop(){
 
   //Main title
   cal.drawRoundRect(0,0,150,28,4,TFT_WHITE);
-  cal.drawString("Ondas e Mares",20,4,1);
+  cal.drawString("Surf Predict",20,4,1);
  
 
   cal.pushToSprite(&sprite,xt-224,yt,TFT_GREEN);

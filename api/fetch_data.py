@@ -61,13 +61,13 @@ def generate_data(spotId:str):
     return DailySurf(
         dt_coleted = general_df[0]['timestamp_dt'],
         surf_waves_min = general_df[0]['surf_min'],
-        surf_waves_max = general_df[0]['surf_max'],
+        surf_waves_max = str(general_df[0]['surf_max']),
         probability = general_df[0]['probability'],
         wind_direction = general_df[0]['direction'],
-        wind_speed = general_df[0]['speed'],
-        general_temp = general_df[0]['temperature'],
-        max_tideshigh = tide_max[0]['height'],
+        wind_speed = str(general_df[0]['speed']),
+        general_temp = str(general_df[0]['temperature']),
+        max_tideshigh = str(tide_max[0]['height']),
         timestamp_max_tideshigh = tide_max[0]['timestamp_dt'],
-        min_tideslow = tide_min[0]['height'],
+        min_tideslow = str(tide_min[0]['height']),
         timestamp_min_tideslow = tide_min[0]['timestamp_dt']
     )

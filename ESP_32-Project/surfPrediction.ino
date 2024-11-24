@@ -116,20 +116,20 @@ void loop(){
   sprite.setTextColor(TFT_BLACK);
   sprite.drawString(String(general_temp)+"C",40,150,2);
   sprite.setTextColor(TFT_WHITE);
-  sprite.drawString("N",173,118,2);
-  sprite.drawString(String("25")+"km/h",170,165,1);
+  sprite.drawString(getWindDirectionLetter(wind_direction),173,118,2);
+  sprite.drawString(String(wind_speed)+"km/h",170,165,1);
 
 
   // Tides
   spr.drawString("Pico de Mares",8,5,2);
   // High tids
-  spr.drawString(String("0.5")+"m/"+String("9")+"h",0,56,2);
+  spr.drawString(String(max_tideshigh)+"m/"+String("9")+"h",0,56,2);
   // low tids
-  spr.drawString(String("0.2")+"m/"+String("15")+"h",59,56,2);
+  spr.drawString(String(min_tideslow)+"m/"+String("15")+"h",59,56,2);
 
   //Waves
   spr3.drawString(String("Swell e Periodo"),12,35,2);
-  spr3.drawString(String("1.0m")+"/"+String("15")+"h",8,75,2);
+  spr3.drawString(String(surf_waves_max)+"/"+String("15")+"h",8,75,2);
   spr3.drawString("-",73,75,2);
   spr3.drawString(String("10")+"s",85,75,2);
 

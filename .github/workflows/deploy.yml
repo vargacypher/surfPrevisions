@@ -3,7 +3,8 @@ name: Generate JSON and Publish Artifact
 on:
   schedule:
     - cron: '0 * * * *'
-
+  workflow_dispatch:
+    
 permissions:
   contents: write
 

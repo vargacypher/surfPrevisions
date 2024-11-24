@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 jobs:
-  deploy:
+  generate-json:
     runs-on: ubuntu-latest
     environment:
       name: publishJson 

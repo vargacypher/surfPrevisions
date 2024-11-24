@@ -30,7 +30,7 @@ def generate_data(spotId:str):
 
     #GENERAL DATA LAST HOUR FROM SURFLINE
     general_df = spotforecasts.get_dataframe()
-    general_df['timestamp_dt'] = pd.to_datetime(general_df['timestamp_dt'],format='%H:%M')
+    general_df['timestamp_dt'] = general_df['timestamp_dt'].dt.hour
     general_df['timestamp_dt'] = general_df['timestamp_dt'].astype(str)
 
     
@@ -50,8 +50,9 @@ def generate_data(spotId:str):
 
     #TIDES
     tide_df = spotforecasts.get_dataframe('tides')
-    tide_df['timestamp_dt'] = pd.to_datetime(tide_df['timestamp_dt'],format='%H:%M')
+    tide_df['timestamp_dt'] = tide_df['timestamp_dt'].dt.hour
     tide_df['timestamp_dt'] = tide_df['timestamp_dt'].astype(str)
+
     del spotforecasts
     
     tide_max = tide_df[(tide_df['height'] == tide_df['height'].max())].head(1)
@@ -62,16 +63,18 @@ def generate_data(spotId:str):
     del tide_df
 
 
-    return DailySurf(
+    surf_data = DailySurf(
         dt_coleted = general_df[0]['timestamp_dt'],
-        surf_waves_min = general_df[0]['surf_min'],
-        surf_waves_max = str(general_df[0]['surf_max']),
+        surf_waves_min = round((general_df[0]['surf_min']*30.48)/100,2),
+        surf_waves_max =  '-'.join([str(round((general_df[0]['surf_min']*30.48)/100,2)),str(round((general_df[0]['surf_max']*30.48)/100,2))]), #Feet to cm
         probability = general_df[0]['probability'],
         wind_direction = general_df[0]['direction'],
         wind_speed = str(general_df[0]['speed']),
-        general_temp = str(general_df[0]['temperature']),
-        max_tideshigh = str(tide_max[0]['height']),
+        general_temp = str(round((general_df[0]['temperature'] - 32) / 1.8, 2)), # Fahrenheit Celsius
+        max_tideshigh = str(round((tide_max[0]['height']*30.48)/100,2)), #Feet to cm
         timestamp_max_tideshigh = tide_max[0]['timestamp_dt'],
-        min_tideslow = str(tide_min[0]['height']),
+        min_tideslow = str(round((tide_min[0]['height']*30.48)/100,2)), #Feet to cm
         timestamp_min_tideslow = tide_min[0]['timestamp_dt']
     )
+
+    return surf_data.__dict__

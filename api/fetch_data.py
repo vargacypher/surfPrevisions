@@ -49,7 +49,6 @@ def generate_data(spotId:str):
     #TIDES
     tide_df = spotforecasts.get_dataframe('tides')
     tide_df['timestamp_dt'] = pd.to_datetime(tide_df['timestamp_dt'],format='%H:%M')
-    tide_df['timestamp_dt'] = tide_df.dt.hour
     del spotforecasts
     
     tide_max = tide_df[(tide_df['height'] == tide_df['height'].max())].head(1)

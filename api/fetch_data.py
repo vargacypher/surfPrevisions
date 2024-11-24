@@ -77,4 +77,4 @@ def generate_data(spotId:str):
         timestamp_min_tideslow = tide_min[0]['timestamp_dt']
     )
 
-    return surf_data.__dict__
+    return surf_data

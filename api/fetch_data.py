@@ -30,7 +30,7 @@ def generate_data(spotId:str):
 
     #GENERAL DATA LAST HOUR FROM SURFLINE
     general_df = spotforecasts.get_dataframe()
-    general_df['timestamp_dt'] = general_df['timestamp_dt'].dt.hour
+    general_df['timestamp_dt'] = general_df['timestamp_dt']
     current_hour = dt.now().hour
     general_df = general_df[general_df['timestamp_dt'].dt.hour == current_hour]
     

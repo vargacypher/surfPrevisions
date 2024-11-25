@@ -31,8 +31,8 @@ def generate_data(spotId:str):
     #GENERAL DATA LAST HOUR FROM SURFLINE
     general_df = spotforecasts.get_dataframe()
     general_df['timestamp_dt'] = general_df['timestamp_dt'].dt.hour
-    general_df['timestamp_dt'] = general_df['timestamp_dt'].astype(str)
-
+    current_hour = dt.now().hour
+    general_df = general_df[general_df['timestamp_dt'].dt.hour == current_hour]
     
     general_df = general_df.head(1)[
             [
@@ -50,6 +50,10 @@ def generate_data(spotId:str):
 
     #TIDES
     tide_df = spotforecasts.get_dataframe('tides')
+    # Filter tide_df for the last 12 hours
+    current_time = dt.now()
+    cutoff_time = current_time - timedelta(hours=12)
+    tide_df = tide_df[tide_df['timestamp_dt'] >= cutoff_time]
     tide_df['timestamp_dt'] = tide_df['timestamp_dt'].dt.hour
     tide_df['timestamp_dt'] = tide_df['timestamp_dt'].astype(str)
 
@@ -61,7 +65,6 @@ def generate_data(spotId:str):
     tide_min = tide_df[(tide_df['height'] == tide_df['height'].min())].head(1)
     tide_min = tide_min[['timestamp_dt','height']].to_dict('records')
     del tide_df
-
 
     surf_data = DailySurf(
         dt_coleted = general_df[0]['timestamp_dt'],

@@ -4,7 +4,7 @@
 
 **requeriments**: 
 - USB-C Cable OTG
-= Lilygo T-DISPAY-S3 Board
+- Lilygo T-DISPAY-S3 Board
 
 ## SETUP PROJECT
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)

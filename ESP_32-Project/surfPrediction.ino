@@ -42,7 +42,8 @@ void setup(void){
   cal.createSprite(218,31);
   cal.fillSprite(TFT_GREEN);
   cal.setTextColor(TFT_WHITE,TFT_GREEN);
-  cal.setFreeFont(&Orbitron_Light_24);
+  //cal.setFreeFont(&Orbitron_Light_24);
+
 
   spr.createSprite(120,250);
   spr.fillSprite(TFT_GREEN);
@@ -114,7 +115,7 @@ void loop(){
   
   //Temp and Windy
   sprite.setTextColor(TFT_BLACK);
-  sprite.drawString(String(general_temp)+"C",40,150,2);
+  sprite.drawString(String(general_temp)+"°C",40,150,2);
   sprite.setTextColor(TFT_WHITE);
   sprite.drawString(getWindDirectionLetter(wind_direction),173,118,2);
   sprite.drawString(String(wind_speed)+"km/h",170,165,1);
@@ -122,10 +123,10 @@ void loop(){
 
   // Tides
   spr.drawString("Pico de Mares",8,5,2);
-  // High tids
-  spr.drawString(String(max_tideshigh)+"m/"+String("9")+"h",0,56,2);
-  // low tids
-  spr.drawString(String(min_tideslow)+"m/"+String("15")+"h",59,56,2);
+    // High tids
+  spr.drawString(String(max_tideshigh)+"m/"+String(timestamp_max_tideshigh)+"h",0,56,2);
+    // low tids
+  spr.drawString(String(min_tideslow)+"m/"+String(timestamp_min_tideslow)+"h",59,56,2);
 
   //Waves
   spr3.drawString(String("Swell e Periodo"),12,35,2);
@@ -135,7 +136,8 @@ void loop(){
 
   //Main title
   cal.drawRoundRect(0,0,150,28,4,TFT_WHITE);
-  cal.drawString("Surf Predict",20,4,1);
+  cal.setTextSize(2);
+  cal.drawString("Surf Predict",20,4);
  
 
   cal.pushToSprite(&sprite,xt-224,yt,TFT_GREEN);

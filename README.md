@@ -37,9 +37,6 @@
 
 8. Turn-on the Board pressing **boot** button
 
-* You can also choose `` as the board, but the partition table is fixed to **16M Flash (3M APP/9.9MB FATFS)**
-
-
 
 ## DATA GENERATE EVERY HOUR WITH GITHUB ACTIONS / STOPPED
 barrinha.json

@@ -35,8 +35,7 @@
     | USB Mode                             | **CDC and JTAG**                  |
     * The options in bold are required, others are selected according to actual conditions.
 
-8. Click `upload` , Wait for compilation and writing to complete
-9. If it cannot be written, or the USB device keeps flashing, please check the **FAQ** below
+8. Turn-on the Board pressing **boot** button
 
 * You can also choose `` as the board, but the partition table is fixed to **16M Flash (3M APP/9.9MB FATFS)**
 

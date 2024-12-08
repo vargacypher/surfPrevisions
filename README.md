@@ -9,7 +9,7 @@
 ## SETUP PROJECT
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
 2. In Arduino Preferences, on the Settings tab, enter the `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json` URL in the `Additional boards manager URLs` input box.
-3. Download Espressif Boards Manager Version <= 2.0.11   (https://forum.arduino.cc/t/esp32-s3-sudden-compile-error/1177237/22) / (https://github.com/Bodmer/TFT_eSPI/issues/3329)
+3. Download Espressif Boards Manager Version **esp-32** <= 2.0.11   (https://forum.arduino.cc/t/esp32-s3-sudden-compile-error/1177237/22) / (https://github.com/Bodmer/TFT_eSPI/issues/3329)
 4. Download [T-Display-S3](https://github.com/Xinyuan-LilyGO/T-Display-S3) , move to Arduino library folder (e.g. C:\Users\YourName\Documents\Arduino\libraries) 
 5. Copy TFT-eSPI to Arduino library folder (e.g. C:\Users\YourName\Documents\Arduino\libraries)
 6. Open ArduinoIDE ,`Tools` ，Make your selection according to the table below
